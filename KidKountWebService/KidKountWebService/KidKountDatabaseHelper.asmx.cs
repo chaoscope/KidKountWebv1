@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using MySql.Data.MySqlClient;
-using MySql;
 
 /*  SWIFT PROTOCOLS - Updated 9/8/2014
  * 
