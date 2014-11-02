@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace KidKountWebService
 {
@@ -39,7 +40,7 @@ namespace KidKountWebService
 
             if (DatabaseConnect.Instance.OpenConnection() == true)
             {
-                var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, DatabaseConnect.Instance.connection);
+                var cmd = new MySqlCommand(query, DatabaseConnect.Instance.connection);
                 var dataReader = cmd.ExecuteReader();
 
                 if (dataReader.Read())
@@ -98,9 +99,9 @@ namespace KidKountWebService
 
             if (DatabaseConnect.Instance.OpenConnection() == true)
             {
-                var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, DatabaseConnect.Instance.connection);
-                var emailCmd = new MySql.Data.MySqlClient.MySqlCommand(emailQuery, DatabaseConnect.Instance.connection);
-                var phoneCmd = new MySql.Data.MySqlClient.MySqlCommand(phoneQuery, DatabaseConnect.Instance.connection);
+                var cmd = new MySqlCommand(query, DatabaseConnect.Instance.connection);
+                var emailCmd = new MySqlCommand(emailQuery, DatabaseConnect.Instance.connection);
+                var phoneCmd = new MySqlCommand(phoneQuery, DatabaseConnect.Instance.connection);
                 
                 var dataReader = cmd.ExecuteReader();
                 dataReader.Read();
@@ -191,7 +192,7 @@ namespace KidKountWebService
 
             if (DatabaseConnect.Instance.OpenConnection() == true)
             {
-                var checkCmd = new MySql.Data.MySqlClient.MySqlCommand(checkQuery, DatabaseConnect.Instance.connection);
+                var checkCmd = new MySqlCommand(checkQuery, DatabaseConnect.Instance.connection);
                 var checkReader = checkCmd.ExecuteReader();
                 if (!checkReader.HasRows)
                 {
@@ -217,7 +218,7 @@ namespace KidKountWebService
 
             if (DatabaseConnect.Instance.OpenConnection() == true)
             {
-                var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, DatabaseConnect.Instance.connection);
+                var cmd = new MySqlCommand(query, DatabaseConnect.Instance.connection);
                 var reader = cmd.ExecuteReader();
                 var parentList = new List<ParentModel>();
 
@@ -248,7 +249,7 @@ namespace KidKountWebService
                 + uuid + "';";
             if (DatabaseConnect.Instance.OpenConnection() == true)
             {
-                var childCmd = new MySql.Data.MySqlClient.MySqlCommand(query, DatabaseConnect.Instance.connection);
+                var childCmd = new MySqlCommand(query, DatabaseConnect.Instance.connection);
                 var parentUuid = "";
                 var childReader = childCmd.ExecuteReader();
                 if (childReader.Read())
@@ -274,7 +275,7 @@ namespace KidKountWebService
                 + uuid + "';";
             if (DatabaseConnect.Instance.OpenConnection() == true)
             {
-                var cmd = new MySql.Data.MySqlClient.MySqlCommand(checkQuery, DatabaseConnect.Instance.connection);
+                var cmd = new MySqlCommand(checkQuery, DatabaseConnect.Instance.connection);
                 var reader = cmd.ExecuteReader();
                 if (!reader.HasRows)
                 {
@@ -299,7 +300,7 @@ namespace KidKountWebService
             if (DatabaseConnect.Instance.OpenConnection())
             {
                 var parentList = new List<ParentModel>();
-                var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, DatabaseConnect.Instance.connection);
+                var cmd = new MySqlCommand(query, DatabaseConnect.Instance.connection);
                 var reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -331,7 +332,7 @@ namespace KidKountWebService
             if (DatabaseConnect.Instance.OpenConnection())
             {
                 var childrenList = new List<ChildModel>();
-                var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, DatabaseConnect.Instance.connection);
+                var cmd = new MySqlCommand(query, DatabaseConnect.Instance.connection);
                 var reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -362,7 +363,7 @@ namespace KidKountWebService
 
             if (DatabaseConnect.Instance.OpenConnection()) 
             {
-                var parentCmd = new MySql.Data.MySqlClient.MySqlCommand(parentQuery, DatabaseConnect.Instance.connection);
+                var parentCmd = new MySqlCommand(parentQuery, DatabaseConnect.Instance.connection);
                 var parentReader = parentCmd.ExecuteReader();
                 parentReader.Read();
 
@@ -371,7 +372,7 @@ namespace KidKountWebService
 
                 var childQuery = "SELECT * FROM " + Constants.CHILDREN_TABLE +
                     " WHERE member='" + member + "';";
-                var childCmd = new MySql.Data.MySqlClient.MySqlCommand(childQuery, DatabaseConnect.Instance.connection);
+                var childCmd = new MySqlCommand(childQuery, DatabaseConnect.Instance.connection);
                 var childReader = childCmd.ExecuteReader();
                 var childList = new List<ChildModel>();
 
@@ -421,7 +422,7 @@ namespace KidKountWebService
 
             if (DatabaseConnect.Instance.OpenConnection())
             {
-                var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, DatabaseConnect.Instance.connection);
+                var cmd = new MySqlCommand(query, DatabaseConnect.Instance.connection);
                 var reader = cmd.ExecuteReader();
                 var childrenList = new List<ChildModel>();
 
@@ -512,7 +513,7 @@ namespace KidKountWebService
 
             if (DatabaseConnect.Instance.OpenConnection() == true)
             {
-                var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, DatabaseConnect.Instance.connection);
+                var cmd = new MySqlCommand(query, DatabaseConnect.Instance.connection);
                 var reader = cmd.ExecuteReader();
                 reader.Read();
 
@@ -534,7 +535,7 @@ namespace KidKountWebService
 
             if (DatabaseConnect.Instance.OpenConnection() == true)
             {
-                var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, DatabaseConnect.Instance.connection);
+                var cmd = new MySqlCommand(query, DatabaseConnect.Instance.connection);
                 var reader = cmd.ExecuteReader();
                 reader.Read();
 
@@ -556,12 +557,12 @@ namespace KidKountWebService
 
             if (DatabaseConnect.Instance.OpenConnection() == true)
             {
-                var parentCmd = new MySql.Data.MySqlClient.MySqlCommand(parentQuery);
+                var parentCmd = new MySqlCommand(parentQuery);
                 var parentReader = parentCmd.ExecuteReader();
                 if (!parentReader.HasRows)
                 {
                     parentReader.Close();
-                    var childCmd = new MySql.Data.MySqlClient.MySqlCommand(childQuery);
+                    var childCmd = new MySqlCommand(childQuery);
                     var childReader = childCmd.ExecuteReader();
 
                     if (!childReader.HasRows)
