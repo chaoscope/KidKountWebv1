@@ -9,6 +9,5 @@ C:\Users\Tyler\Documents\KidKountWebv1\KidKountWebService\KidKountWebService\bin
 C:\Users\Tyler\Documents\KidKountWebv1\KidKountWebService\KidKountWebService\bin\KidKountWebService.dll
 C:\Users\Tyler\Documents\KidKountWebv1\KidKountWebService\KidKountWebService\bin\KidKountWebService.pdb
 C:\Users\Tyler\Documents\KidKountWebv1\KidKountWebService\KidKountWebService\bin\MySql.Data.dll
-C:\Users\Tyler\Documents\KidKountWebv1\KidKountWebService\KidKountWebService\obj\Debug\KidKountWebService.csprojResolveAssemblyReference.cache
 C:\Users\Tyler\Documents\KidKountWebv1\KidKountWebService\KidKountWebService\obj\Debug\KidKountWebService.dll
 C:\Users\Tyler\Documents\KidKountWebv1\KidKountWebService\KidKountWebService\obj\Debug\KidKountWebService.pdb
