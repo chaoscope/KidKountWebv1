@@ -1,0 +1,4 @@
+Name: MySql.Data
+Description: Privodes Connectivity to MySql Databases
+Version: 6.0
+Libs: -r:/usr/lib/mono/xbuild-frameworks/MySql.Data.dll

@@ -1,6 +1,0 @@
-Libraries=/usr/lib/mono/xbuild-frameworks/MySql.Data.dll
-
-Name: MySql Data Connection 
-Description: Connections for database
-Version: 6.0
-Libs: -r:MySql.Data.dll
